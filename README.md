@@ -1,7 +1,7 @@
 # BCP 47
 
-**PHP helpers to validate and normalize [IETF BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag).**~~
-~~
+**PHP helpers to validate and normalize [IETF BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag).**
+
 ---
 
 [![Static Analysis](https://github.com/Toobo/bcp47/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/Toobo/bcp47/actions/workflows/static-analysis.yml)
