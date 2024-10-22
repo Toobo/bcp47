@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+    <file>./src/</file>
+    <file>./tests/</file>
+
+    <arg value="sp"/>
+    <config name="testVersion" value="8.3-"/>
+
+    <rule ref="Inpsyde">
+        <exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped" />
+    </rule>
+
+    <rule ref="Inpsyde.CodeQuality.Psr4">
+        <properties>
+            <property
+                name="psr4"
+                type="array"
+                value="Toobo=>src,Toobo\Tests=>tests/unit|tests/src"
+            />
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property type="integer" name="complexity" value="18"/>
+            <property type="integer" name="absoluteComplexity" value="25"/>
+        </properties>
+    </rule>
+
+    <rule ref="Inpsyde.CodeQuality.FunctionLength">
+        <exclude-pattern>./tests/</exclude-pattern>
+    </rule>
+    <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>./tests/boot.php</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv">
+        <exclude-pattern>./tests/boot.php</exclude-pattern>
+    </rule>
+</ruleset>

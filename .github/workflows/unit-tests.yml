@@ -1,0 +1,57 @@
+name: Unit tests
+
+on:
+    push:
+        paths:
+            - '**workflows/unit-tests.yml'
+            - '**.php'
+            - '**composer.json'
+            - '**phpunit.xml.dist'
+    pull_request:
+        paths:
+            - '**workflows/unit-tests.yml'
+            - '**.php'
+            - '**composer.json'
+            - '**phpunit.xml.dist'
+    workflow_dispatch:
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    unit-tests:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                php-ver: [ '8.3', '8.4' ]
+        steps:
+            -   name: Set "USE_COVERAGE" env var based on matrix
+                run: echo "USE_COVERAGE=${{ matrix.php-ver == '8.3' }}" >> $GITHUB_ENV
+
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php-ver }}
+                    ini-values: zend.assertions=1, error_reporting=E_ALL, display_errors=On
+                    coverage: ${{ ((env.USE_COVERAGE == 'yes') && 'xdebug') || 'none' }}
+
+            -   name: Adjust Composer dependencies
+                run:  composer remove --dev --no-update inpsyde/php-coding-standards phpcompatibility/php-compatibility vimeo/psalm
+
+            -   name: Install dependencies
+                uses: ramsey/composer-install@v3
+
+            -   name: Run unit tests
+                run: ./vendor/bin/phpunit ${{ ((env.USE_COVERAGE == 'yes') && '--coverage-clover coverage.xml') || '--no-coverage' }}
+
+            -   name: Update coverage
+                if: ${{ env.USE_COVERAGE == 'yes' }}
+                uses: codecov/codecov-action@v4
+                with:
+                    token: ${{ secrets.CODECOV_TOKEN }}
+                    file: ./coverage.xml

@@ -1,0 +1,81 @@
+{
+    "name": "toobo/bcp47",
+    "description": "PHP utility functions to validate and normalize IETF BCP 47 language tag.",
+    "keywords": [
+        "bcp47",
+        "bcp 47",
+        "bcp-47",
+        "ietf bcp47",
+        "ietf bcp 47",
+        "ietf bcp-47",
+        "ietf",
+        "ietf tag",
+        "ietf language",
+        "ietf language tag",
+        "locale",
+        "language",
+        "lang",
+        "language tag",
+        "html lang",
+        "html lang attribute",
+        "html language"
+    ],
+    "homepage": "https://github.com/Toobo/bcp47/",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Giuseppe Mazzapica",
+            "email": "giuseppe.mazzapica@gmail.com",
+            "homepage": "https://gmazzap.me",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">= 8.3 < 8.5",
+        "wikimedia/bcp-47-code": "^1|^2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5.37",
+        "phpcompatibility/php-compatibility": "dev-develop as 9.3.6",
+        "inpsyde/php-coding-standards": "^2@dev",
+        "vimeo/psalm": "^5.26.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Toobo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Toobo\\Tests\\": [
+                "tests/unit/",
+                "tests/src/"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "composer/*": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "scripts": {
+        "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "psalm": "@php ./vendor/vimeo/psalm/psalm --no-suggestions --report-show-info=false --find-unused-psalm-suppress --no-diff --no-cache --no-file-cache --output-format=compact",
+        "tests": "@php ./vendor/phpunit/phpunit/phpunit --no-coverage",
+        "qa": [
+            "@cs",
+            "@psalm",
+            "@tests"
+        ]
+    }
+}
