@@ -6,7 +6,8 @@
 
 [![Static Analysis](https://github.com/Toobo/bcp47/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/Toobo/bcp47/actions/workflows/static-analysis.yml)
 [![Unit Tests](https://github.com/Toobo/bcp47/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/Toobo/bcp47/actions/workflows/unit-tests.yml)
-[![Mutation Tests](https://img.shields.io/badge/Mutation_Tests-Min_Covered_MSI_95%25-%2331C553?style=flat&logo=php&logoColor=%23F0F0F0)](https://github.com/Toobo/bcp47/actions/workflows/mutation-tests.yml)
+![Mutation Tests](https://img.shields.io/badge/PHP_8.3%2B-blue?style=flat&logo=php&logoColor=white&labelColor=black)
+[![Mutation Tests](https://img.shields.io/badge/Mutation_Tests-Min_Covered_MSI_95%25-blue?style=flat&logo=php&logoColor=white&labelColor=black)](https://github.com/Toobo/bcp47/actions/workflows/mutation-tests.yml)
 
 ---
 
