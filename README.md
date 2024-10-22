@@ -41,8 +41,8 @@ array (
 
 ## The `Bcp47Tag` class
 
-The `Toobo\Bcp47Tag` offers an API similar to the utility functions, but it ensure it encapsulate
-a valid tag, in fact it throws when instantiated with an invalid tag.
+The `Toobo\Bcp47Tag` class offers an API similar to the utility functions, but it ensures it
+encapsulates a valid tag, because it throws when instantiated with an invalid tag.
 
 The class is `Stringable` and `JsonSerializable`, and it also implements the `Bcp47Code` interface
 defined by the [**`wikimedia/bcp-47-code`**](https://packagist.org/packages/wikimedia/bcp-47-code)
@@ -84,6 +84,9 @@ The validation apply to all subtags (but "extension" and "privateUse"), and also
 For example, the tag `ca-valencia` is valid (_Valencia variant of the Catalan language_),
 but `en-valencia` is not, despite the language "en" and the variant "valencia" being valid per-se,
 because there is no "valencia" variant for the English language.
+
+Validation is done by comparing the values with the up-to-date list of all the registered BCP 47 
+subtags, which includes over 8000 languages, and several hundreds of scripts, regions, and variants.
 
 
 
