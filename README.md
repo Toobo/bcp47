@@ -63,7 +63,7 @@ assert($tag->privateUse() === null);
 assert($tag->isRtl() === false);
 
 assert((string) $tag === 'en-CA-newfound');
-
+assert($tag->toBcp47Code() === 'en-CA-newfound');
 assert(json_encode($tag) === '{"language":"en","region":"CA","variant":"newfound"}');
 ```
 
