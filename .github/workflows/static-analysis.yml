@@ -39,7 +39,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php-ver: [ '8.3', '8.4' ]
+                php-ver: [ '8.3', '8.4', '8.5' ]
         with:
             PHP_VERSION: ${{ matrix.php-ver }}
 
