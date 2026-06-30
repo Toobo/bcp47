@@ -39,8 +39,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5.37",
-        "phpcompatibility/php-compatibility": "dev-develop as 9.3.6",
-        "inpsyde/php-coding-standards": "^2@dev",
+        "phpcompatibility/php-compatibility": "^10@dev",
+        "inpsyde/php-coding-standards": "^2.0.2",
         "vimeo/psalm": "^5.26.1"
     },
     "autoload": {
