@@ -25,7 +25,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php-ver: [ '8.3', '8.4' ]
+                php-ver: [ '8.3', '8.4', '8.5' ]
         steps:
             -   name: Set "USE_COVERAGE" env var based on matrix
                 run: echo "USE_COVERAGE=${{ ((matrix.php-ver == '8.3') && 'yes') || 'no' }}" >> $GITHUB_ENV

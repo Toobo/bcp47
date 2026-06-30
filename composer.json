@@ -34,7 +34,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">= 8.3 < 8.5",
+        "php": ">= 8.3 < 8.6",
         "wikimedia/bcp-47-code": "^1|^2"
     },
     "require-dev": {
